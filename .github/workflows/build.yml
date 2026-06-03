@@ -47,8 +47,6 @@ jobs:
         with:
           tag_name: v${{ steps.get-version.outputs.VERSION }}
           files: |
-            bungee/build/libs/floodgate-bungee.jar
-            spigot/build/libs/floodgate-spigot.jar
             velocity/build/libs/floodgate-velocity.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
