@@ -41,8 +41,15 @@ jobs:
           version=$(cat gradle.properties | grep -o "version=[0-9\\.]*" | cut -d"=" -f2)
           echo "VERSION=${version}" >> $GITHUB_OUTPUT
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: floodgate-jars
+          path: |
+            velocity/build/libs/floodgate-velocity.jar
+            
       - name: Upload all JARs to GitHub Release
-        if: ${{ success() && github.repository == 'Punkred/Floodgate' && github.ref_name == 'master' }}
+        if: false
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.get-version.outputs.VERSION }}
