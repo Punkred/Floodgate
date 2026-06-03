@@ -32,7 +32,7 @@ jobs:
       - name: Build Floodgate
         run: ./gradlew build
         env:
-          BUILD_NUMBER: ${{ steps.release-info.outputs.curentRelease }}
+          BUILD_NUMBER: ${{ github.run_number }}
 
       - name: Get Version
         if: ${{ success() && github.repository == 'Punkred/Floodgate' && github.ref_name == 'master' }}
