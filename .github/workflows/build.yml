@@ -30,7 +30,7 @@ jobs:
           cache-read-only: ${{ github.ref_name != 'master' && github.ref_name != 'development' }}
         
       - name: Build Floodgate
-        run: ./gradlew build :velocity:build
+        run: ./gradlew :velocity:build
         env:
           BUILD_NUMBER: ${{ github.run_number }}
 
