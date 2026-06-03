@@ -20,7 +20,7 @@ jobs:
         # See https://github.com/actions/setup-java/commits
         uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4.2.1
         with:
-          java-version: 21
+          java-version: 17
           distribution: temurin
 
       - name: Setup Gradle
@@ -42,7 +42,7 @@ jobs:
           echo "VERSION=${version}" >> $GITHUB_OUTPUT
 
       - name: Upload all JARs to GitHub Release
-        if: ${{ success() && github.repository == 'cowcreations/Floodgate' && github.ref_name == 'master' }}
+        if: ${{ success() && github.repository == 'Punkred/Floodgate' && github.ref_name == 'master' }}
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.get-version.outputs.VERSION }}
